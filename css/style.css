@@ -1,3 +1,4 @@
+/*Game Map*/
 #gameMap{
   width: auto; 
   margin: 10px auto;
@@ -37,8 +38,40 @@
   border: solid .5px rgb(130, 141, 9);
 }
 
+.unavailable{
+  background-image: url("../img/mur.png");
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
 
+.dague{
+  background-image: url("../img/dague.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
 
+.laser{
+  background-image: url("../img/laser.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.sword{
+  background-image: url("../img/sword.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.double_sword{
+  background-image: url("../img/double_sword.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
 
 /*Game panel*/
 #game-panel {

@@ -35,4 +35,22 @@ let GameMap = function() {
       }
       domGameMap.append(row);
     }
+      //add the obstacles
+      for (var x = 0; x < this.obstaclesNumber; x++) {
+        var randomPosition = new RandomPosition(this.size);
+        $('#box-'+randomPosition.x+randomPosition.y).removeClass();
+        $('#box-'+randomPosition.x+randomPosition.y).addClass('box unavailable');
+      }
+
+      //add weapons
+      this.weapons = ['weapon dague', 'weapon sword', 'weapon laser', 'weapon double_sword'];
+
+      for (var x = 0; x < this.weaponsNumber; x++) {
+        var randomPosition = new RandomPosition(this.size);
+        //clear box class as available
+        $('#box-'+randomPosition.x+randomPosition.y).removeClass();
+        //place a weapon
+        $('#box-'+randomPosition.x+randomPosition.y).addClass('box '+ this.weapons[x]);
+  
+      }
 }
