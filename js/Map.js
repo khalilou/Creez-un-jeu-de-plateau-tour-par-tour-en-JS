@@ -35,4 +35,10 @@ let GameMap = function() {
       }
       domGameMap.append(row);
     }
+      //add the obstacles
+      for (var x = 0; x < this.obstaclesNumber; x++) {
+        var randomPosition = new RandomPosition(this.size);
+        $('#box-'+randomPosition.x+randomPosition.y).removeClass();
+        $('#box-'+randomPosition.x+randomPosition.y).addClass('box unavailable');
+      }
 }

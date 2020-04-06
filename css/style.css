@@ -1,3 +1,4 @@
+/*Game Map*/
 #gameMap{
   width: auto; 
   margin: 10px auto;
@@ -37,7 +38,12 @@
   border: solid .5px rgb(130, 141, 9);
 }
 
-
+.unavailable{
+  background-image: url("../img/mur.png");
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
 
 
 /*Game panel*/
