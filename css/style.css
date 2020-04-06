@@ -1,0 +1,53 @@
+#gameMap{
+  width: auto; 
+  margin: 10px auto;
+  min-width: 510px;
+  min-height: 510px;
+  max-width: 510px;
+  max-height: 510px;
+}
+
+.boxesRow{
+  display: flex;
+  width: 100%;
+  width: auto; 
+  text-align: center;
+  margin: auto;
+}
+
+.player-panel {
+  max-width: 200px;
+  padding: 10px;
+  text-align: center;
+}
+
+#playerOne-panel {
+  background-color: red;
+}
+
+#playerTwo-panel {
+  background-color: green;
+}
+
+.box{
+  width: 51px;
+  height: 51px; 
+  padding: 3px;
+  background-color: #BFCA3D;
+  border: solid .5px rgb(130, 141, 9);
+}
+
+
+
+
+/*Game panel*/
+#game-panel {
+  text-align: center;
+}
+
+#playerOne-weapon, #playerTwo-weapon {
+  margin:auto;
+  background-color: #aaaaaa;
+  min-height: 50px;
+  max-width: 50px;
+}
