@@ -84,3 +84,17 @@
   min-height: 50px;
   max-width: 50px;
 }
+
+.playerOne{
+  background-image: url("../img/player1.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.playerTwo{
+  background-image: url("../img/player2.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
