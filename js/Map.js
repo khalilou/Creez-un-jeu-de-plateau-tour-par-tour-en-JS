@@ -84,11 +84,6 @@ class MapClass {
     console.log(randomPosition);
     }
 
-  //Object player 1
-  this.playerOne = new Player("playerOne",10);
-  //Object player 2
-  this.playerTwo = new Player("playerTwo",10);
-
   
   //find an available random box, where the player do not touch
   var randomPosition = new RandomPosition(this.size);
@@ -97,11 +92,11 @@ class MapClass {
     this.playerTwo.y = randomPosition.y;
 
     //avoid that players touch in the initial position
-    while(checkPlayersTouch(this.playerOne, this.playerTwo) || !$('#box-'+this.playerOne.x+this.playerTwo.y).hasClass('available')){
+    while(checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+playerTwo.y).hasClass('available')){
       randomPosition = new RandomPosition(this.size);
       console.log("test -1")
-      playerOne.x = randomPosition.x;
-      playerTwo.y = randomPosition.y;
+      this.playerOne.x = randomPosition.x;
+      this.playerTwo.y = randomPosition.y;
     }
 
     $('#box-'+this.playerOne.x+this.playerOne.y).removeClass();//remove available class
