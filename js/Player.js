@@ -1,4 +1,4 @@
-let Player = function(playerName, size) {
+let Player = function(playerName) {
 
     //player properties
     this.x=0;

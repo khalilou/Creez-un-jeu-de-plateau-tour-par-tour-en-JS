@@ -1,6 +1,6 @@
 //generate ramdon position
 function genRandomNumber(range){
-  return Math.floor(Math.random() * range)
+      return Math.floor(Math.random() * range)
 }
 
 let RandomPosition = function(range) {
@@ -79,11 +79,16 @@ class MapClass {
   addPlayer(playerOne, playerTwo) {
   //find an available random box
   var randomPosition = new RandomPosition(this.size);
-  while(!$('#box-'+randomPosition.x+randomPosition.y).hasClass('available')){
+  while(!$('#box-'+randomPosition.x+randomPosition.y).hasClass('available') || !$('#box-'+randomPosition.y+randomPosition.x).hasClass('available') ){
     randomPosition = new RandomPosition(this.size);
     console.log(randomPosition);
     }
-
+    //place player 1
+    playerOne.x = randomPosition.x;
+    playerOne.y = randomPosition.y;
+    //place player 2
+    playerTwo.x = randomPosition.x;
+    playerTwo.y = randomPosition.y;
   
   //find an available random box, where the player do not touch
   var randomPosition = new RandomPosition(this.size);
@@ -92,7 +97,7 @@ class MapClass {
     this.playerTwo.y = randomPosition.y;
 
     //avoid that players touch in the initial position
-    while(checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+playerTwo.y).hasClass('available')){
+    while(checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+playerTwo.y).hasClass('available') || !$('#box-'+playerTwo.y+playerTwo.x).hasClass('available') ){
       randomPosition = new RandomPosition(this.size);
       console.log("test -1")
       this.playerOne.x = randomPosition.x;
