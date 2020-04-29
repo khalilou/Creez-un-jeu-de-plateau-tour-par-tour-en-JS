@@ -45,6 +45,33 @@
   background-size: cover;
 }
 
+.dague{
+  background-image: url("../img/dague.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.laser{
+  background-image: url("../img/laser.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.sword{
+  background-image: url("../img/sword.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.double_sword{
+  background-image: url("../img/double_sword.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
 
 /*Game panel*/
 #game-panel {
@@ -56,4 +83,18 @@
   background-color: #aaaaaa;
   min-height: 50px;
   max-width: 50px;
+}
+
+.playerOne{
+  background-image: url("../img/player1.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.playerTwo{
+  background-image: url("../img/player2.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
 }
