@@ -131,4 +131,5 @@ let checkPlayersTouch = function(player, nextPlayer) {
   }
 
   return false;
+
 }
