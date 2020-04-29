@@ -17,46 +17,12 @@ function changePosition (player, x,  y, nextPlayer){
 
 //remove active status when player move
 function removePlayerPos(player) {
-    for (var i = 0; i < 4; i++) {
-      let box = $('#box-'+(player.x+i)+player.y);
-      if(!box.hasClass('unavailable')) {
-        console.log("test " + (!box.hasClass('unavailable')))
-        box.removeClass('active');
-        box.off("click");
-      }
-      else
-        break;
-    }
-
-    for (var i = 0; i < 4; i++) {
-      var box = $('#box-'+(player.x-i)+player.y);
-      if(!box.hasClass('unavailable')){
-        box.removeClass('active');
-        box.off("click");
-      }
-      else
-        break;
-    }
-
-    for (var i = 0; i < 4; i++) {
-      var box = $('#box-'+player.x+(player.y+i));
-      if(!box.hasClass('unavailable')){
-        box.removeClass('active');
-        box.off("click");
-      }
-      else
-        break;
-    }
-
-    for (var i = 0; i < 4; i++) {
-      var box = $('#box-'+player.x+(player.y-i));
-      if(!box.hasClass('unavailable')){
-        box.removeClass('active');
-        box.off("click");
-      }
-      else
-        break;
-    }
+    let boxes = $(".active").toArray();
+    console.log(typeof(boxes))
+    boxes.forEach(box => {
+      $(box).off("click");
+      $(box).removeClass("active")
+    });
   }
   
 //look for player possible moves
