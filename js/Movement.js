@@ -18,73 +18,59 @@ function changePosition (player, x,  y, nextPlayer){
 //remove active status when player move
 function removePlayerPos(player) {
     let boxes = $(".active").toArray();
-    console.log(typeof(boxes))
     boxes.forEach(box => {
       $(box).off("click");
       $(box).removeClass("active")
     });
   }
-  
-//look for player possible moves
-function CheckPlayermoves (player,nextPlayer) {
 
-    for (var i = 0; i < 4; i++) {
-      let box = $('#box-'+(player.x+i)+player.y);
-      if(!box.hasClass('unavailable') && !box.hasClass(nextPlayer.name)) {
-        box.addClass('active');
-        console.log("red");
-        let x= player.x+i;
-        let y= player.y;
-        box.click(function(){
-            changePosition(player,x,y, nextPlayer)
-            });
-      }
-      else
-        break;
+//look for player possible moves
+  function CheckPlayermoves (player,nextPlayer) {
+        for (var i = -3; i < 4; i++) {
+            for (var j = -3; j < 4; j++) {
+              let xPos = player.x+ i;
+              let yPos;
+              if(xPos == player.x){
+                yPos = player.y + j;
+              }
+              else{
+                yPos = player.y;
+              }
+              let box = $('#box-'+xPos+yPos);
+              if(!box.hasClass('unavailable') && !box.hasClass(nextPlayer.name)) {
+              box.addClass('active');
+              let x = xPos;
+              let y = yPos;
+              box.click(function(){
+                console.log(box);             
+                changePosition(player,x,y, nextPlayer)
+                  });
+              }
+              else {
+                if(yPos != player.y && j < 0) {
+                  for(let xp = xPos; xp<-3;xp--){
+                    console.log(box); 
+                    $("box-" +xp+yPos).removeClass("active")
+                  }
+                }
+                else if(yPos != player.y && j>0 ){
+                  j = 4 ;
+                }
+                else if(xPos != player.x && i < 0 ){
+                  for(let yp = yPos; yp<-3;yp--){
+                    console.log(box); 
+                    $("box-" +yp+xPos).removeClass("active")
+
+                  }
+                  j = -3;
+                }
+                else if(xPos != player.x && i > 0) {
+                  i = 4;
+                }
+              }
+
+            }
+        }
     }
-  
-    for (var i = 0; i < 4; i++) {
-      var box = $('#box-'+(player.x-i)+player.y);
-      if(!box.hasClass('unavailable') && !box.hasClass(nextPlayer.name)){
-        box.addClass('active');
-        console.log("red-1");
-        let x= player.x-i;
-        let y= player.y;
-        box.click(function(){
-          changePosition(player,x,y, nextPlayer)
-            });
-      }
-      else
-        break;
-    }
-  
-    for (var i = 0; i < 4; i++) {
-      var box = $('#box-'+player.x+(player.y+i));
-      if(!box.hasClass('unavailable') && !box.hasClass(nextPlayer.name)){
-        box.addClass('active');
-        console.log("red-2");
-        let x= player.x;
-        let y= player.y+i;
-        box.click(function(){
-          changePosition(player,x,y, nextPlayer)
-            });
-      }
-      else
-        break;
-    }
-  
-    for (var i = 0; i < 4; i++) {
-      var box = $('#box-'+player.x+(player.y-i));
-      if(!box.hasClass('unavailable') && !box.hasClass(nextPlayer.name)){
-        box.addClass('active');
-        console.log("red-3");
-        let x= player.x;
-        let y= player.y-i;
-        box.click(function(){
-          changePosition(player,x,y, nextPlayer)
-            });
-      }
-      else
-        break;
-    }
-  }
+
+
