@@ -12,5 +12,30 @@ $(document).ready(function() {
     startGame.generateMap();
     CheckPlayermoves(this.playerOne, this.playerTwo);
     console.log(this.playerOne.turn);
+      // player 1 fighting panel *************************
+  //button attack for player 1
+  $( "#playerOne-attack" ).click(function() {
+    fight(startGame.playerOne, startGame.playerTwo);
+  });
+
+  //button defend for player 1
+  $( "#playerOne-defend" ).click(function() {
+    startGame.playerOne.fightingOption="defend";
+    disableFight(startGame.playerOne);
+    enableFight(startGame.playerTwo);
+  });
+
+  // player2 fighting panel ***************************
+  //button attack for player 2
+  $( "#playerTwo-attack" ).click(function() {
+    fight(startGame.playerTwo, startGame.playerOne);
+  });
+
+  //button defend for player 2
+  $( "#playerTwo-defend" ).click(function() {
+    startGame.playerTwo.fightingOption="defend";
+    disableFight(startGame.playerTwo);
+    enableFight(startGame.playerOne);
+  });
   });
 });

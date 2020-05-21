@@ -9,4 +9,5 @@ let Player = function(playerName) {
     this.damagePower=10;
     this.fightingOption = "attack";
     this.turn=false;
+    $('#' + this.name +'-score').html(this.score);
     };

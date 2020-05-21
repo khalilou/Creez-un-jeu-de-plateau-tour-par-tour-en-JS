@@ -12,9 +12,54 @@ function changePosition (player, x,  y, nextPlayer){
   //add player to the new position
   box = $('#box-'+player.x+player.y);
   box.addClass(player.name);
-
+  //if the player touches the next player, fight begin
+  if( checkCombatBegin(player, nextPlayer) )
+  {
+    startFight(player, nextPlayer);
+    return;
+  }
   //active the next player possible moves
   CheckPlayermoves(nextPlayer,player);
+}
+
+function startFight (player, nextPlayer){
+  enableFight(player);
+  disableFight(nextPlayer);
+}
+
+//enable fighting buttons
+function enableFight(player) {
+  $("#"+player.name+"-attack").attr("disabled", false);	
+  $("#"+player.name+"-defend").attr("disabled", false);	
+  $("#"+player.name+"-attack").removeClass("disabled");	
+  $("#"+player.name+"-defend").removeClass("disabled");	
+}
+
+//disable fighting buttons
+function disableFight(player) {
+  $("#"+player.name+"-attack").attr("disabled", true);	
+  $("#"+player.name+"-defend").attr("disabled", true);	
+  $("#"+player.name+"-attack").addClass("disabled");	
+  $("#"+player.name+"-defend").addClass("disabled");	
+}
+
+//combat begins when players touch horizontally and vertically
+ function checkCombatBegin(player, nextPlayer) {
+  
+  if((player.x === nextPlayer.x)&&(player.y+1 === nextPlayer.y))
+    return true;
+
+  if((player.x === nextPlayer.x)&&(player.y-1 === nextPlayer.y))
+    return true;
+
+  if((player.x+1 === nextPlayer.x)&&(player.y === nextPlayer.y))
+    return true;
+
+  if((player.x-1 === nextPlayer.x)&&(player.y === nextPlayer.y))
+    return true;
+
+  return false;
+
 }
 
 //remove active status when player move
