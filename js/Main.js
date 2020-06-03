@@ -3,39 +3,46 @@ $(document).ready(function() {
   $( "#new-game" ).click(function() {
     //make new instance of the Game object
     //Object player 1
-    this.playerOne = new Player("playerOne");
+    let playerOne = new Player("playerOne");
     //Object player 2
-    this.playerTwo = new Player("playerTwo");
-    this.playerOne.turn =true;
-    let startGame = new MapClass(10,10,this.playerOne,this.playerTwo);
+    let playerTwo = new Player("playerTwo");
+    playerOne.turn =true;
+    let weapons = [
+        new Weapon('dague', 50),
+        new Weapon('sword', 30),
+        new Weapon('laser', 40),
+        new Weapon('double_sword', 20)
+    ];
+    let startGame = new MapClass(10,10,playerOne,playerTwo, weapons);
 
     startGame.generateMap();
-    CheckPlayermoves(this.playerOne, this.playerTwo);
-    console.log(this.playerOne.turn);
-      // player 1 fighting panel *************************
+    startGame.checkPlayermoves(playerOne, playerTwo);
+    //console.log(playerOne.turn);
+
+   // player 1 fighting panel
   //button attack for player 1
   $( "#playerOne-attack" ).click(function() {
-    fight(startGame.playerOne, startGame.playerTwo);
+    startGame.playerOne.fight(startGame.playerTwo);
   });
 
   //button defend for player 1
   $( "#playerOne-defend" ).click(function() {
     startGame.playerOne.fightingOption="defend";
-    disableFight(startGame.playerOne);
-    enableFight(startGame.playerTwo);
+    startGame.playerOne.disableFight();
+    startGame.playerTwo.enableFight();
   });
 
-  // player2 fighting panel ***************************
+  // player2 fighting panel
   //button attack for player 2
   $( "#playerTwo-attack" ).click(function() {
-    fight(startGame.playerTwo, startGame.playerOne);
+    startGame.playerTwo.fight(startGame.playerOne);
   });
 
   //button defend for player 2
   $( "#playerTwo-defend" ).click(function() {
     startGame.playerTwo.fightingOption="defend";
-    disableFight(startGame.playerTwo);
-    enableFight(startGame.playerOne);
+    startGame.playerTwo.disableFight();
+    startGame.playerOne.enableFight();
   });
   });
 });
