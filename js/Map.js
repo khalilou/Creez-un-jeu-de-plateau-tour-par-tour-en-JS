@@ -307,7 +307,3 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
       }
 
   }
-
-
-}
-
