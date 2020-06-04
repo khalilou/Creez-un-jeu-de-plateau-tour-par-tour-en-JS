@@ -4,8 +4,10 @@ $(document).ready(function() {
     //make new instance of the Game object
     //Object player 1
     let playerOne = new Player("playerOne");
+    //disableFight(playerOne);
     //Object player 2
     let playerTwo = new Player("playerTwo");
+    //disableFight(playerTwo);
     playerOne.turn =true;
     let weapons = [
         new Weapon('dague', 50),
