@@ -236,8 +236,6 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
           this.startFight(player, nextPlayer);
           return;
         }
-        //console.log("box", box);
-
         //active the next player possible moves
         this.checkPlayermoves(nextPlayer,player);
     }

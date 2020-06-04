@@ -11,38 +11,17 @@ constructor(playerName) {
     this.turn=false;
     $('#' + this.name +'-score').html(this.score);
 }
-  /*checkPlayersTouch(nextPlayer) {
-
-    if( this.x === nextPlayer.x && this.y === nextPlayer.y ){
-      return true;
-    }
-  
-    if( this.x === nextPlayer.x && this.y+1 === nextPlayer.y ){
-      return true;
-    }
-    if( this.x === nextPlayer.x && this.y-1 === nextPlayer.y ){
-      return true;
-    }
-    if( this.x+1 === nextPlayer.x && this.y === nextPlayer.y ){
-      return true;
-    }
-    if( this.x-1 === nextPlayer.x && this.y === nextPlayer.y ){
-      return true;
-    }
-  
-    return false;
-  }*/
 
   fight(nextPlayer) {
     //set player fighting option to "attack"
     this.fightingOption="attack";
 
     //get the damage power of the player
-    let damagePower = this.damagePower;
+    let damagePower = this.weapon.damages;
 
     //check next player fighting option
     if(nextPlayer.fightingOption==="defend")
-      damagePower = (this.damagePower/2);//if the next player is defending, the damage is divided by 2
+      damagePower = (this.weapon.damages/2);//if the next player is defending, the damage is divided by 2
 
     if(nextPlayer.score - damagePower > 0)
       nextPlayer.score = nextPlayer.score - damagePower;
@@ -70,6 +49,7 @@ constructor(playerName) {
     this.disableFight();
     nextPlayer.enableFight();
 }
+
 //enable fighting buttons
 enableFight() {
   $("#"+this.name+"-attack").attr("disabled", false);	
