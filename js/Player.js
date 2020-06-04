@@ -52,7 +52,6 @@ constructor(playerName) {
       nextPlayer.score = 0;
       $('#' + nextPlayer.name +'-score').html(nextPlayer.score);
       alert("Le combat est fini");
-      $(body).hide();
       // $("#"+this.name+"-attack").attr("disabled", true);	
       // $("#"+this.name+"-defend").attr("disabled", true);	
       // $("#"+this.name+"-attack").addClass("disabled !important");	

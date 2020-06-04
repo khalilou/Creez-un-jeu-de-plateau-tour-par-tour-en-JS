@@ -257,31 +257,8 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
 
     checkWeapon(player, x, y) {
         this.getWeapon(player,x,y);
+        //console.log("get weapon", this);
     }
-
-    // getWeapon(player,x,y){
-    //     let box = $('#box-'+x+y);
-    //     if(box.hasClass('weapon')){
-    //         let lastWeapon = player.weapon;
-    //         let weaponName = box.attr('class').split(' ')[2];
-    //         let weapon = [...this.weapons.filter(element => element.name === weaponName)][0];
-    //         let weaponIndex = this.weapons.indexOf(element => element.name = weaponName);
-    //         this.weapons.splice(weaponIndex, 1);
-    //         this.weapons.push(lastWeapon);
-    //             console.log(weapon);
-    //             console.log(weapons)
-    //             player.weapon = weapon;
-    //             console.log("player", player)
-    //             $('#' + player.name +'-damagePower').html(weapon.damages);
-    //             $('#' + player.name +'-weapon').removeClass();
-    //             $('#' + player.name +'-weapon').addClass(weapon.name);
-    //             box.removeClass(weapon.name);
-    //             box.addClass(lastWeapon.name);
-    //     }
-        
-
-    // }
-
 
     getWeapon(player,x,y){
       let box = $('#box-'+x+y);
@@ -289,25 +266,27 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
           let lastWeapon = player.weapon;
           //let weapons = [...this.weapons];
           let weaponName = box.attr('class').split(' ')[2];
-          let weapon = [...this.weapons.filter(element => element.name === weaponName)][0];
-          let weaponIndex = this.weapons.indexOf(element => element.name === weaponName);
+          console.log("WeaponName ", weaponName);
+          let weapon = this.weapons.find(element => element.name === weaponName);
+          console.log(weapon);
+          //let weaponIndex = this.weapons.indexOf(element => element.name === weaponName);
+          let weaponIndex = this.weapons.indexOf(weapon);
           this.weapons.splice(weaponIndex, 1);
-          console.log(this.weapons);
-          console.log(weaponIndex);
+          console.log("Weapons tab",this.weapons);
+          console.log("Weapon index",weaponIndex);
           this.weapons.push(lastWeapon);
-      console.log(lastWeapon);
+          console.log(lastWeapon);
               player.weapon = weapon;
-              console.log("player", player)
+              console.log("Player", player)
               $('#' + player.name +'-damagePower').html(weapon.damages);
+              console.log("Weapon damages", weapon.damages)
               $('#' + player.name +'-weapon').removeClass();
               $('#' + player.name +'-weapon').addClass(weapon.name);
+              console.log("Weapon name", weapon.name)
               box.removeClass(weapon.name);
               box.addClass(lastWeapon.name);
               //this.weapons = [...weapons];
       }
-
   }
-
-
 }
 
