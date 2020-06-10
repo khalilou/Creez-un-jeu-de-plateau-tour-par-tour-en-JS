@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Celebration Modal -->
+    <div id="CelebrationModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img id="celebration-img" src="img/celebration.png" alt="celebration">
+                    <p class="lead">The winner is "<span id="winner" class="strong">mm</span>"</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <!-- new game button -->
     <header id="game-panel" class="my-3">
         <button id="new-game" type="button" class="btn btn-primary">Start New Game</button>
@@ -36,7 +52,7 @@
                             Damage Power
                         </div>
                         <div id="playerOne-damagePower" >
-                            10
+                            20
                         </div>
                     </div>
                 </div>
@@ -76,7 +92,7 @@
                             Damage Power
                         </div>
                         <div id="playerTwo-damagePower">
-                            10
+                            20
                         </div>
                     </div>
                 </div>

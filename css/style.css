@@ -23,11 +23,15 @@
 }
 
 #playerOne-panel {
-  background-color: red;
+  background-color: blue;
 }
 
 #playerTwo-panel {
-  background-color: green;
+  background-color: red;
+}
+#celebration-img {
+  margin: auto;
+  width: 60%;
 }
 
 .box{
