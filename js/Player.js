@@ -5,11 +5,11 @@ constructor(playerName) {
     this.y=0;
     this.name=playerName;
     this.score = 100;
-    this.weapon = "";
+    this.weapon = new Weapon("swords", 20);
     this.damagePower=10;
     this.fightingOption = "attack";
     this.turn=false;
-    $('#' + this.name +'-score').html(this.score);
+    $('#' + this.name +'-score').html(this.damages);
 }
 
   fight(nextPlayer) {
@@ -27,14 +27,12 @@ constructor(playerName) {
       nextPlayer.score = nextPlayer.score - damagePower;
     else//if the next player has no score left, he lose
     {
-      //dislay score
-      nextPlayer.score = 0;
-      $('#' + nextPlayer.name +'-score').html(nextPlayer.score);
-      alert("Le combat est fini");
-      // $("#"+this.name+"-attack").attr("disabled", true);	
-      // $("#"+this.name+"-defend").attr("disabled", true);	
-      // $("#"+this.name+"-attack").addClass("disabled !important");	
-      // $("#"+this.name+"-defend").addClass("disabled !important");	      
+      if(nextPlayer.name == "playerTwo")
+      $('#winner').html('Player 1');
+      else
+      $('#winner').html('Player 2');  
+      //display celebration panel
+      $('#CelebrationModal').modal('show');	      
     }
 
 
