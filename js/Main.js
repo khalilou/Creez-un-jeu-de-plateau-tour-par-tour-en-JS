@@ -46,5 +46,6 @@ $(document).ready(function() {
     startGame.playerTwo.disableFight();
     startGame.playerOne.enableFight();
   });
+  
   });
 });
