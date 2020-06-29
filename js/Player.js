@@ -6,8 +6,6 @@ class Player  {
       this.name=playerName;
       this.score = 100;
       this.weapon = new Weapon("hache", 20);
-      //this.damagePower=10;
-      //this.fightingOption = "attack";
       this.turn=false;
       this.weaponPanel = $('#' + playerName +'-weapon');
       this.weaponDamagePanel = $('#' + playerName +'-damagePower')
@@ -16,7 +14,6 @@ class Player  {
   }
   
     fight = (nextPlayer) => {
-      console.log("nextPlayer",nextPlayer)
       //set player fighting option to "attack"
       this.fightingOption="attack";
   
@@ -40,15 +37,12 @@ class Player  {
         $('#CelebrationModal').modal('show');	
            
       }
-  
-  
       //if not a winner yet, display the scores
       $('#' + nextPlayer.name +'-score').html(nextPlayer.score);
       $('#' + nextPlayer.name +'-visualScore').css("width", nextPlayer.score + "%").attr("aria-valuenow", nextPlayer.score);
   
       //set next player fighting option to default ("attack")
       nextPlayer.fightingOption="attack";
-  
       //switch players turn
       this.disableFight();
       if(nextPlayer.score > 0) {

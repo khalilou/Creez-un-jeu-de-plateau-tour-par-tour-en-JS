@@ -23,9 +23,8 @@ $(document).ready(() => {
     let startGame = new MapClass(10,10,playerOne,playerTwo, weapons);
     startGame.generateMap();
     startGame.checkPlayermoves(playerOne, playerTwo);
-    //console.log(playerOne.turn);
 
-   // player 1 fighting panel
+  // player 1 fighting panel
   //button attack for player 1
   $( "#playerOne-attack" ).click(() => {
     playerOne.fight(playerTwo);
