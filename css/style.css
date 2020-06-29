@@ -56,6 +56,13 @@
   background-size: cover;
 }
 
+.hache{
+  background-image: url("../img/hache.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
 .laser{
   background-image: url("../img/laser.png");
   background-position: center; /* Center the image */
@@ -65,6 +72,12 @@
 
 .sword{
   background-image: url("../img/sword.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+.swords{
+  background-image: url("../img/swords.png");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
