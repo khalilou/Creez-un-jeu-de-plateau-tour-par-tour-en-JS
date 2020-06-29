@@ -22,7 +22,6 @@ class MapClass {
 
   generateMap(){
       this.domGameMap.html("");
-
       // Generate the core map empty
       //fill the game map and set box type to default(available)
       for (let y = 0; y < this.size; y++) {
@@ -44,13 +43,10 @@ class MapClass {
        //add the obstacles
     for (let x = 0; x < this.obstaclesNumber; x++) {
       let randomPosition = new RandomPosition(this.size);
-      //console.log("randomPosition", randomPosition.x, randomPosition.y);
       // check that the case is not yet an obstacle
       if($('#box-'+randomPosition.x+randomPosition.y).hasClass('unavailable')){
-          console.error("Un obstacle existe ici");
           x--;
       }else{
-          //console.log('ajout de l\'obstacle n°' + x);
           $('#box-'+randomPosition.x+randomPosition.y).removeClass();
           $('#box-'+randomPosition.x+randomPosition.y).addClass('box unavailable');
       }
@@ -60,15 +56,12 @@ class MapClass {
 
   addWeapon(){
       //add weapons
-
     for (let x = 0; x < this.weaponsNumber; x++) {
       let randomPosition = new RandomPosition(this.size);
       //clear box class as available
       if($('#box-'+randomPosition.x+randomPosition.y).hasClass('unavailable') || $('#box-'+randomPosition.x+randomPosition.y).hasClass('weapon')){
-         // console.error("il y a ici un obstacle ou une arme");
           x--;
       }else{
-          //console.log('ajout de l\'arme n°' + x);
           $('#box-'+randomPosition.x+randomPosition.y).removeClass();
           //place a weapon
           $('#box-'+randomPosition.x+randomPosition.y).addClass('box weapon '+ this.weapons[x].name);
@@ -82,10 +75,9 @@ class MapClass {
   let randomPosition = new RandomPosition(this.size);
   while(!$('#box-'+randomPosition.x+randomPosition.y).hasClass('available') || !$('#box-'+randomPosition.y+randomPosition.x).hasClass('available') ){
     randomPosition = new RandomPosition(this.size);
-    //console.log(randomPosition);
     }
 
-      //place player 1
+    //place player 1
     playerOne.x = randomPosition.x;
     playerOne.y = randomPosition.y;
     //place player 2
@@ -161,7 +153,6 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
                 let x= player.x+i;
                 let y= player.y;
                 box.click(() =>{
-                    //console.log("this",this);
                     this.changePosition(player,x,y, nextPlayer)
                 });
             }
@@ -173,11 +164,9 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
           let box = $('#box-'+(player.x-i)+player.y);
             if(!box.hasClass('unavailable') && !box.hasClass(nextPlayer.name)){
                 box.addClass('active');
-                //console.log("red-1");
                 let x= player.x-i;
                 let y= player.y;
                 box.click(() =>{
-                    //console.log("this",this);
                     this.changePosition(player,x,y, nextPlayer)
                 });
             }
@@ -192,7 +181,6 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
                 let x= player.x;
                 let y= player.y+i;
                 box.click(() =>{
-                    //console.log("this",this);
                     this.changePosition(player,x,y, nextPlayer)
                 });
             }
@@ -207,7 +195,6 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
                 let x= player.x;
                 let y= player.y-i;
                 box.click(() => {
-                    //console.log("this",this);
                     this.changePosition(player,x,y, nextPlayer)
                 });
             }
@@ -254,35 +241,23 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
 
     checkWeapon(player, x, y) {
         this.getWeapon(player,x,y);
-        //console.log("get weapon", this);
     }
 
     getWeapon(player,x,y){
       let box = $('#box-'+x+y);
       if(box.hasClass('weapon')){
           let lastWeapon = player.weapon;
-          //let weapons = [...this.weapons];
           let weaponName = box.attr('class').split(' ')[2];
-          console.log("WeaponName ", weaponName);
           let weapon = this.weapons.find(element => element.name === weaponName);
-          console.log(weapon);
-          //let weaponIndex = this.weapons.indexOf(element => element.name === weaponName);
           let weaponIndex = this.weapons.indexOf(weapon);
           this.weapons.splice(weaponIndex, 1);
-          console.log("Weapons tab",this.weapons);
-          console.log("Weapon index",weaponIndex);
           this.weapons.push(lastWeapon);
-          console.log(lastWeapon);
               player.weapon = weapon;
-              console.log("Player", player)
               $('#' + player.name +'-damagePower').html(weapon.damages);
-              console.log("Weapon damages", weapon.damages)
               $('#' + player.name +'-weapon').removeClass();
               $('#' + player.name +'-weapon').addClass(weapon.name);
-              console.log("Weapon name", weapon.name)
               box.removeClass(weapon.name);
               box.addClass(lastWeapon.name);
-              //this.weapons = [...weapons];
       }
   }
 }
