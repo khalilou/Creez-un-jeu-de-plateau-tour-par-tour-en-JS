@@ -25,10 +25,10 @@ class MapClass {
 
       // Generate the core map empty
       //fill the game map and set box type to default(available)
-      for (var y = 0; y < this.size; y++) {
-          var row = $('<div>').addClass('boxesRow');
-          for (var x = 0; x < this.size; x++) {
-              var box = $('<div>').addClass('box available');
+      for (let y = 0; y < this.size; y++) {
+        let row = $('<div>').addClass('boxesRow');
+          for (let x = 0; x < this.size; x++) {
+            let box = $('<div>').addClass('box available');
               box.attr('id', "box-" +  x + y);
               row.append(box);
           }
@@ -42,8 +42,8 @@ class MapClass {
 
   addObstacles(){
        //add the obstacles
-    for (var x = 0; x < this.obstaclesNumber; x++) {
-      var randomPosition = new RandomPosition(this.size);
+    for (let x = 0; x < this.obstaclesNumber; x++) {
+      let randomPosition = new RandomPosition(this.size);
       //console.log("randomPosition", randomPosition.x, randomPosition.y);
       // check that the case is not yet an obstacle
       if($('#box-'+randomPosition.x+randomPosition.y).hasClass('unavailable')){
@@ -60,10 +60,9 @@ class MapClass {
 
   addWeapon(){
       //add weapons
-    //this.weapons = ['weapon dague', 'weapon sword', 'weapon laser', 'weapon double_sword'];
 
-    for (var x = 0; x < this.weaponsNumber; x++) {
-      var randomPosition = new RandomPosition(this.size);
+    for (let x = 0; x < this.weaponsNumber; x++) {
+      let randomPosition = new RandomPosition(this.size);
       //clear box class as available
       if($('#box-'+randomPosition.x+randomPosition.y).hasClass('unavailable') || $('#box-'+randomPosition.x+randomPosition.y).hasClass('weapon')){
          // console.error("il y a ici un obstacle ou une arme");
@@ -80,7 +79,7 @@ class MapClass {
 
   addPlayer(playerOne, playerTwo) {
   //find an available random box
-  var randomPosition = new RandomPosition(this.size);
+  let randomPosition = new RandomPosition(this.size);
   while(!$('#box-'+randomPosition.x+randomPosition.y).hasClass('available') || !$('#box-'+randomPosition.y+randomPosition.x).hasClass('available') ){
     randomPosition = new RandomPosition(this.size);
     //console.log(randomPosition);
@@ -94,7 +93,7 @@ class MapClass {
     playerTwo.y = randomPosition.y;
 
   //find an available random box, where the player do not touch
-  var randomPosition = new RandomPosition(this.size);
+  randomPosition = new RandomPosition(this.size);
 
     this.playerOne.x = randomPosition.x;
     this.playerTwo.y = randomPosition.y;
@@ -155,7 +154,7 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
     }
 
     checkPlayermoves (player,nextPlayer) {
-        for (var i = 0; i < 4; i++) {
+        for (let i = 0; i < 4; i++) {
             let box = $('#box-'+(player.x+i)+player.y);
             if(!box.hasClass('unavailable') && !box.hasClass(nextPlayer.name)) {
                 box.addClass('active');
@@ -170,8 +169,8 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
                 break;
         }
 
-        for (var i = 0; i < 4; i++) {
-            var box = $('#box-'+(player.x-i)+player.y);
+        for (let i = 0; i < 4; i++) {
+          let box = $('#box-'+(player.x-i)+player.y);
             if(!box.hasClass('unavailable') && !box.hasClass(nextPlayer.name)){
                 box.addClass('active');
                 //console.log("red-1");
@@ -186,8 +185,8 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
                 break;
         }
 
-        for (var i = 0; i < 4; i++) {
-            var box = $('#box-'+player.x+(player.y+i));
+        for (let i = 0; i < 4; i++) {
+          let box = $('#box-'+player.x+(player.y+i));
             if(!box.hasClass('unavailable') && !box.hasClass(nextPlayer.name)){
                 box.addClass('active');
                 let x= player.x;
@@ -201,8 +200,8 @@ while(this.checkPlayersTouch(playerOne, playerTwo) || !$('#box-'+playerTwo.x+pla
                 break;
         }
 
-        for (var i = 0; i < 4; i++) {
-            var box = $('#box-'+player.x+(player.y-i));
+        for (let i = 0; i < 4; i++) {
+          let box = $('#box-'+player.x+(player.y-i));
             if(!box.hasClass('unavailable') && !box.hasClass(nextPlayer.name)){
                 box.addClass('active');
                 let x= player.x;
